@@ -83,7 +83,7 @@ public class MissionServiceImpl implements MissionService {
         float distance = 0;
         int kmPerHour = (captains * 100) + (crew * 10);
         for (Planet planet : planets) {
-            if (planet.diameter().isPresent()) distance += planet.diameter().get().intValue();
+            distance += planet.diameter().orElse(0L);
         }
         return Math.round(distance / kmPerHour);
     }
