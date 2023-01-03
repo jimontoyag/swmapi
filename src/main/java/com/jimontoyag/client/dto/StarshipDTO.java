@@ -23,7 +23,7 @@ public record StarshipDTO(String name, String url, String crew, List<String> pil
     public Long totalPassengers() {
         return Optional.ofNullable(passengers)
                 .map(this::parseLong)
-                .orElse(0l);
+                .orElse(0L);
     }
 
     public Long maxCrew() {
@@ -41,14 +41,14 @@ public record StarshipDTO(String name, String url, String crew, List<String> pil
        return Stream.of(strings)
                 .map(this::parseLong)
                 .reduce(Long::max)
-               .orElse(1l);
+               .orElse(1L);
     }
 
     private Long parseLong(String str) {
         try{
             return Long.parseLong(str);
         } catch (NumberFormatException numberFormatException) {
-            return 0l;
+            return 0L;
         }
     }
 

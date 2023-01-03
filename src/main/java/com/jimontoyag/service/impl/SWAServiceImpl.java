@@ -22,6 +22,7 @@ public class SWAServiceImpl implements SWAService {
     this.swapi = swapi;
   }
 
+
   @Override
   public List<Planet> getAllPlanets() {
     return joinListPages(swapi::getPlanets, this::mapPlanet);
